@@ -2,6 +2,7 @@ global using Serilog;
 global using Microsoft.EntityFrameworkCore;
 using HotelListing.Data;
 using HotelListing.Startup;
+using HotelListing.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,10 @@ Log.Logger = new LoggerConfiguration()
         restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information)
     .CreateLogger();
 
+builder.Services.AddAuthentication();
+builder.Services.ConfigureIdentity();
+builder.Services.ConfigureIdentity();
+builder.Services.AddScoped<IAuthManager, AuthManager>();
 
 builder.AddNewtonsoftJson();
 builder.AddStandardServices();
