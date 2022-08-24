@@ -17,6 +17,7 @@ Log.Logger = new LoggerConfiguration()
         restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information)
     .CreateLogger();
 
+
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureIdentity();
@@ -28,6 +29,7 @@ builder.AddUnitOfWork();
 builder.AddDataContext();
 builder.AddAutoMapper();
 builder.AddCorsPolicy();
+builder.AddSwaggerDoc();
 
 var app = builder.Build();
 
