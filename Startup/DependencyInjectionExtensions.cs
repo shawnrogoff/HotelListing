@@ -62,6 +62,8 @@ public static class DependencyInjectionExtensions
     {
         var builder = services.AddIdentityCore<ApiUser>(q => q.User.RequireUniqueEmail = true);
         builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), services);
+
+        builder.AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
     }
 
     public static void ConfigureJWT(this IServiceCollection services, IConfiguration Configuration)

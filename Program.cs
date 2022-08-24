@@ -20,7 +20,6 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
-builder.Services.ConfigureIdentity();
 builder.Services.AddScoped<IAuthManager, AuthManager>();
 
 builder.AddNewtonsoftJson();
