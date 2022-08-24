@@ -63,8 +63,9 @@ public class HotelsController : ControllerBase
         }
     }
 
+
+    [Authorize(Roles = "Administrator")] // Only admin can create a hotel
     [HttpPost]
-    [Route("createhotel")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
